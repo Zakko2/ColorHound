@@ -1,0 +1,166 @@
+* {
+margin:0;
+padding:0;
+}
+
+html { overflow: -moz-scrollbars-vertical; }
+html { overflow-x: auto; }
+
+
+a {
+color:#A47D01;
+}
+
+a:visited {
+color:#BE9C31;
+}
+
+body {
+background:#666;
+font-family:Arial, Helvetica, sans-serif;
+font-size:13px;
+}
+
+#wrapper {
+margin:0 auto;
+width:922px;
+}
+
+#header {
+background:#FEB041;
+border:1px solid #000;
+color:#333;
+height:165px;
+margin:10px 0 5px;
+padding:10px;
+width:900px;
+}
+
+#content {
+margin:0 0 5px;
+width:922px;
+}
+
+#footer {
+background:#FEDD73;
+border:1px solid #000;
+color:#333;
+margin:0 0 10px;
+padding:10px;
+text-align:right;
+width:900px;
+}
+
+#sourceText {
+border:3px solid #BE8331;
+font-family:Arial, Helvetica, sans-serif;
+height:200px;
+padding:5px;
+width:855px;
+}
+
+#sourceURL {
+border:3px solid #BE8331;
+font-family:Arial, Helvetica, sans-serif;
+padding:5px;
+width:855px;
+}
+
+#coloredSource {
+background-color:#BE8331;
+border:1px solid #000;
+font-family:monospace;
+padding:15px;
+height: 375px;
+overflow:auto;
+}
+
+.light {
+border-color:#fff;
+color:#fff;
+}
+
+.dark {
+border-color:#000;
+color:#000;
+}
+
+.highlight {
+border:1px dotted;
+padding:0 4px;
+}
+
+#banner-image {
+float:right;
+margin:0 0 15px 15px;
+}
+
+p { margin-bottom: 10px; }
+
+.img-frame {
+border:1px solid #FFF;
+padding:5px;
+}
+
+a.img {
+color:#FFF;
+text-decoration:none;
+}
+
+#banner-title {
+background-color:#418DD1;
+border:2px dotted #fff;
+color:#000;
+float:left;
+font-family:monospace;
+font-size:50px;
+padding:0 20px;
+}
+
+#tabs-4 li {
+padding:5px;
+}
+
+#tabs-4 ul li {
+margin-left:30px;
+}
+
+#spinner {
+display:none;
+-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+background-color:#fff;
+background-image:url("../img/spinner3-black.gif");
+background-position:164px 164px;
+background-repeat:no-repeat;
+border:2px solid #000;
+color:#000;
+filter:alpha(opacity=50);
+height:200px;
+left:5px;
+opacity:0.9;
+position:fixed;
+top:5px;
+padding: 15px;
+font-size: 17px;
+width:200px;
+z-index:100;
+}
+
+#dynamic {
+border: 1px solid black; 
+margin-left: 3px; 
+float: right; 
+text-align: left; 
+width: 240px; 
+font-family: monospace;
+}
+
+#colorChartHeading {
+padding: 2px;
+color: #333333;
+background: #ffffff;
+font-family:verdana;
+border-bottom: 1px solid black;
+text-align: center;
+font-weight:bold;
+}

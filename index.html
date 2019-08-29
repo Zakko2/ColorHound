@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Color Hound - Extract hex and CSS colors from CSS, Text, HTML, and more!</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"></meta>
+<meta name="description" content="Color Hound extracts color information from any text. It extracts color from CSS, HTML, or any other text source where the color can be identified in accordance with the css2/css3 specification. In general this means that it will extract multiple formats of hexadecimal color representation as well as valid html/css color names. The extraction does not depend on any specific syntax formatting of the overall file or text."></meta>
+<link rel="stylesheet" type="text/css" href="css/main.css" />
+<link type="text/css" href="css/custom-theme/jquery-ui-1.7.1.custom.css" rel="stylesheet" />
+<link rel="shortcut icon" href="http://colorhound.net/favicon.ico" />
+<script src="js/MochiKit/MochiKit.js" type="text/javascript"></script>
+<script type="text/javascript" src="js/jquery-1.3.2.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.7.1.custom.min.js"></script>
+<script type="text/javascript" src="js/ch.js"></script>
+</head>
+<body>
+<div id="spinner">Processing your results!<br /><br />Completion time is based on input size and your computer's speed.</div>
+<!-- Begin Wrapper -->
+<div id="wrapper"><!-- Begin Header -->
+<div id="header">
+<div id="banner-title" class="highlight">#Color Hound</div>
+<div id="banner-image">
+<a href="http://dawgart.deviantart.com/gallery/">
+<img class="img-frame " src="img/Phoenix_by_dawgart.jpg" alt="Phoenix, courtesy of dawgart: http://dawgart.deviantart.com/gallery/" title="Phoenix, courtesy of dawgart: http://dawgart.deviantart.com/gallery/" />
+</a>
+</div>
+</div>
+<!-- End Header -->
+<!-- Begin Content -->
+<div id="content">
+<div id="tabs">
+<ul>
+<li><a id="paste" href="#tabs-1">Paste?</a></li>
+<li><a id="link" href="#tabs-2">Link?</a></li>
+<li><a id="results" href="#tabs-3">Results!</a></li>
+<li><a id="about" href="#tabs-4">About.</a></li>
+</ul>
+<div id="tabs-1">
+<p>Enter any text, css, html, or even just "red green blue".  Color Hound will look for color information formatted to the <a href="http://www.w3.org/TR/css3-color/">css2/css3 specification</a>, without regard to the syntax of non-color information.</p>
+<form id="findColors" name="findColors" action="javascript:void(0)">
+<textarea id="sourceText"></textarea>
+<input type="submit" value="Go" />
+</form>
+</div>
+<div id="tabs-2">
+<p>Enter any URI for an html page, css page, or any other publicly available text document.</p>
+<form id="findColorsURL" name="findColorsURL" action="javascript:void(0)">
+<input type="text" id="sourceURL" />
+<input type="submit" value="Go" />
+</form>
+</div>
+<div id="tabs-3">
+<div id="coloredSource">
+<div id="colorsFound">
+<div id="dynamic"></div>
+</div>
+<div id="dynamic2">No data submitted for processing yet!</div>
+</div>
+</div>
+<div id="tabs-4">
+<p>Color Hound extracts color information from any text. It extracts color from CSS, HTML, or any other text source where the color can be identified in accordance with the css2/css3 specification. In general this means that it will extract multiple formats of hexadecimal color representation as well as valid html/css color names. The extraction does not depend on any specific syntax formatting of the overall file or text.</p>
+<p>I created this site as an excercise for learning and refreshing my skills with Javascript, CSS, Ajax, JQuery and php.  It's a tool I'll use myself in other projects.  There are other tools freely available on the web that do similar processing but in every case there was something missing.</p>
+<p>This site uses code from the MochiKit framework for color translation routines and JQuery for general "Web 2.0" stuff, including Ajax processing.</p>
+<p>If you have a comment, suggestion, bug, or anything else, please feel free to email me, <a href="mailto:ColorHound@ZRService.com">ColorHound@ZRService.com</a></p>
+<ul>
+<li>This site's color scheme: <a href="http://colorschemedesigner.com/#0K51TvKvKw0w0">Color Scheme Designer</a></li>
+<li>Special thanks to Alicia VanNoy for permission to use the "Phoenix" image on this site!  Click the image to see more from her gallery!</li>
+<li>Other great color resources:
+<ul>
+<li><a href="http://colorschemedesigner.com/">Color Scheme Designer</a></li>
+<li><a href="http://redalt.com/Tools/I+Like+Your+Colors">I Like Your Colors</a></li>
+<li><a href="http://meyerweb.com/eric/tools/color-blend/">Eric Meyer's Color Blend</a></li>
+<li><a href="http://www.hextractor.com/">Hextractor</a></li>
+<li><a href="http://www.w3schools.com/css/css_colornames.asp">W3Schools: CSS Color Names</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- End Content -->
+<!-- Begin Footer -->
+<div id="footer">
+Color Hound &#169; 2015 <a href="http://zrservice.com">Z&amp;R Computer Services</a><br />
+"Phoenix" artwork &#169; <a href="http://dawgart.deviantart.com/gallery/">Alicia VanNoy</a>
+</div><!-- End Footer -->
+</div><!-- End Wrapper -->
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	try {
+		var pageTracker = _gat._createTracker("UA-1803388-3");
+		pageTracker._trackPageview();
+	} catch(err) {}
+		
+	_gaq.push(['_setAccount', 'UA-1803388-3']);
+	$("#paste, #link, #results, #about").each(function() {
+		var href = $(this).attr("href");		
+		var target = $(this).attr("target");		
+		var text = $(this).text();		
+		$(this).click(function(event) { // when someone clicks these links
+			event.preventDefault(); // don't open the link yet
+			_gaq.push(["_trackPageview", href]); // create a dynamic pageview
+			setTimeout(function() { // now wait 300 milliseconds...
+				window.open(href,(!target?"_self":target)); // ...and open the link as usual
+			},300);
+		});
+	});
+
+});
+</script>
+	</body>
+	</html>
